@@ -1,0 +1,26 @@
+server:
+  port: 8001
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - '*'
+  
+spring:
+  application:
+    name: DEPARTMENT-SERVICE
+  config:
+    import:
+    - optional:configserver:http:\\localhost:8888
+  datasource:
+    url: jdbc:mysql://localhost:3306/departmentdb
+    username: root
+    password: My410$Su
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
